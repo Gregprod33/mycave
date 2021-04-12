@@ -1,0 +1,47 @@
+<?php
+$pageTitle = 'Stock';
+require_once('src/models/wines.php');
+$wines = getWines();
+ob_start();
+?>
+
+<div class="add-folder">
+    <a href="wine-add.html"><i class="fas fa-folder-plus fa-2x"></i></a>
+</div>
+
+<table>
+    <thead>
+        <th class="head-img">Image</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Grape</th>
+        <th class="head-region">Region</th>
+        <th class="head-country">Country</th>
+        <th class="head-description">Description</th>
+        <th>Qty</th>
+        <th class="head-edit">Edit</th>
+    </thead>
+    <?php foreach($wines as $wine) : ?>
+    <tbody>
+        <td class="cell-img"><img class="stock-img" src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine"></td>
+        <td><?= $wine['domain'] ?></td>
+        <td><?= $wine['year'] ?></td>
+        <td><?= $wine['grape'] ?></td>
+        <td class="cell-region"><?= $wine['region'] ?></td>
+        <td class="cell-country"><?= $wine['country'] ?></td>
+        <td class="cell-description"><?= $wine['description'] ?></td>
+        <td>2</td>
+        <td class="cell-icons"><i class="fas fa-edit edit"></i><i class="fas fa-trash-alt delete"></i></td>
+        <td class="cell-respond-edit"><i class="fas fa-arrow-circle-right fa-2x"></i></td>
+    </tbody>
+    <?php endforeach; ?>
+</table>
+
+
+		
+
+
+<?php
+$content = ob_get_clean();
+require_once('template/layout.html');
+?>

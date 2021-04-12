@@ -1,0 +1,42 @@
+header {
+	background-image: url('../../img/src/header_bg_1.png');
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+
+	nav {
+			padding: 0 40px;
+			height: 150px;
+			@include flex(center, center, column);
+			img {
+				width: 180px;
+				margin-bottom: 12px;
+			}	
+		
+		
+				a#btn-nav {
+				@extend %button;
+				text-decoration: none;
+			}
+			.greeting {
+				@include font(bold, 16);
+				color: $pink;
+				margin-bottom: 15px;
+	
+			}
+
+			@include respond(tab-sm) {
+				@include flex(space-between, center);
+				img {
+					margin-bottom: 0;	
+				}	
+				.greeting {
+					@include font(bold, 20);
+					margin-bottom: 0;
+		
+				}
+			}
+
+	}
+		
+}

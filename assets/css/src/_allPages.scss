@@ -1,0 +1,33 @@
+body {
+    @include font(regular, 16);
+    .container {
+        margin: 0 auto;
+        text-align: center;
+        @include respond(phone-xs) {
+            max-width: 350px;
+        }
+    
+        @include respond(phone) {
+            max-width: 540px;
+        }
+    
+        @include respond(tab-sm) {
+            max-width: 720px;
+        }
+    
+        @include respond(tab-port) {
+            max-width: 960px;
+        }
+    
+        @include respond(tab-land) {
+            max-width: 1140px;
+        }
+    
+        @include respond(laptop) {
+            max-width: 1320px;
+        }
+    }
+
+
+
+}

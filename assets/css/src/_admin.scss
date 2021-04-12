@@ -1,0 +1,120 @@
+
+.add-folder {
+   text-align: center;
+   margin-bottom: 10px;
+
+   .fas{
+       color: $wine-light;
+   }
+   
+}
+
+
+table {
+    text-align: center; 
+    background-color: $white;
+    border-radius: 15px;
+    margin: 0 auto;
+
+    thead {
+        text-align: center;
+        border-bottom: 2px solid $gray;
+        .head-description, .head-region, .head-edit, .head-img {
+            display: none;
+        }
+        
+            th {
+                text-align: center;
+                @include font(bold, 14, center);
+                padding: 5px;
+                color: $pink;
+                i.fas {
+                    margin-top: 5px;
+                }
+
+        }
+        @include respond(phone) {
+            th {
+                padding: 10px;
+            }
+            th.head-img {
+                display: table-cell;
+            }
+        }
+        @include respond(tab-sm) {
+            th {
+                @include font(bold, 16, center);
+            }    
+        }
+        @include respond(tab-port) {
+            .head-description, .head-region, .head-edit, .head-img {
+                display: table-cell;
+            }
+        }
+        
+    }
+
+    tbody {
+        border-bottom: 2px solid $gray; 
+        .cell-description, .cell-region, .cell-icons, .cell-img {
+            display: none;
+        }
+        td {
+            padding: 5px;
+            vertical-align: middle;
+            @include font(bold, 12, center);
+            color: $wine-dark;
+            
+            .fa-arrow-circle-right {
+                color: $wine-light;
+            }
+            i.edit, i.delete {
+                display: inline;
+                margin: 0 8px;     
+            }
+            img {
+                width: 40px;
+            }   
+        }
+        @include respond(phone) {
+            td {
+                @include font(bold, 14, center);
+            }
+            td.cell-img {
+                display: table-cell;
+            }
+        }
+
+        @include respond(tab-sm) {
+            td {
+                padding: 10px;
+            }
+
+            td img {
+                width: 60px;
+            }
+        }
+        @include respond(tab-port) {
+            td {
+                @include font(bold, 16, center);
+                padding: 15px;
+            }
+            td.cell-description, td.cell-region, td.cell-icons {
+                display: table-cell;
+            }  
+            td.cell-respond-edit {
+                display: none;
+            }
+
+            td img {
+                width: 80px;
+            }
+        }
+    }   
+
+}
+    
+
+
+
+

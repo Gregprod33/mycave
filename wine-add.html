@@ -1,0 +1,33 @@
+<?php
+$pageTitle = 'Add Wine';
+ob_start();
+?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cave | <?php echo $pageTitle ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/dist/style.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="add-form" method="POST" action="wine-add.html">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="year" placeholder="Year">
+            <input type="text" name="grape" placeholder="Grape">
+            <input type="text" name="region" placeholder="Region">
+            <input type="text" name="country" placeholder="Country">
+            <input type="textarea" name="description" placeholder="Description">
+            <input type="file" name="image" >
+            <input type="number" name="qty" step="1" value="1">
+            
+            <button type="submit" name="login">Confirm</button>
+        </form>
+    </div>
+</body>
+
+</html>

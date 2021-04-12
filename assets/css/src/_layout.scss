@@ -1,0 +1,35 @@
+body {
+	background-color: $bg;
+
+    form {
+        margin: 0 auto;
+        text-align: center;
+        input[name="search"] {
+            border: none;
+            width: 230px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            padding: 10px 20px;
+            @include font (italic, 16);
+            &::placeholder {
+                color: $wine;
+            }
+        }
+
+        .fa-search {
+            color: $wine-light;
+        }
+}
+
+
+
+
+
+
+
+
+}
+
+

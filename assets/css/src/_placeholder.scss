@@ -1,0 +1,30 @@
+%button {
+    border-radius: 15px;
+    border: none;
+    padding: 10px 30px;
+    background-color: $white;
+    color: $wine;
+    @include font(bold, 20);
+    cursor: pointer;
+}
+
+%button-card {
+    border-radius: 15px;
+    border: none;
+    padding: 8px 15px;
+    background-color: $wine;
+    color: $white;
+    @include font(bold, 15);
+    cursor: pointer;
+}
+
+
+%button-form {
+    border-radius: 15px;
+    border: none;
+    padding: 8px 15px;
+    background-color: $pink;
+    color: $white;
+    @include font(bold, 15);
+    cursor: pointer;
+}

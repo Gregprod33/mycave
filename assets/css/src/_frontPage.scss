@@ -1,0 +1,48 @@
+h1 {
+	color: $red;
+	@include font(OS_B, 25, center);
+	margin-top: 35px;
+	@include respond(phone) {
+		@include font(OS_I, 18, center);
+	}
+	& + a {
+		text-align: center;
+		margin: 35px;
+		display: block;
+	}
+}
+.padding {
+	padding: 20px;
+}
+.img_content {
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	height: 60vh;
+	border: 2px solid $red;
+	.img_front {
+		width: 60%;
+		height: auto;
+		@extend .padding;
+		@extend %center_absolute;
+	}
+}
+a {
+	@include fontType(text);
+}
+h2 {
+	@extend h1;
+}
+
+.img_background { // astuce pour un background-image responsive sans contenu
+	position: relative;
+	width: 90%;
+	margin: 50px auto 150px;
+	@include background("star_wars.jpg");
+	&:after {
+		content: '';
+		display: inline-block;
+		padding-bottom: 50%;
+
+	}
+}
