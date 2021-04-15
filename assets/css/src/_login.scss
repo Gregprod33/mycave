@@ -1,10 +1,5 @@
 form#user-form {
-    @include flex(center, center, column);
-    background-color: $wine-light;
-    border-radius: 15px;
-    max-width: 400px;
-    height: 300px;
-    margin-top: 150px;
+    @include form(400, 300);
     .wrong-password {
         color: $pink;
         @include font(bold, 14px);
@@ -20,7 +15,19 @@ form#user-form {
             color: $wine-dark;
         }
     }
-    button {
-        @extend %button-form
+    .login-buttons {
+        @include flex(center, center);
+        button {
+            @extend %button-form;
+            margin: 0 10px;
+        }
+        .cancel-btn {
+            @extend %cancel-btn;
+            padding: 11px 15px;
+            margin: 0 10px;
+        }
+
+
     }
+    
 }

@@ -9,9 +9,36 @@ function getPdoConnect(){
 function getWines() {
     try {
         $pdo = getPdoConnect();
-        return $pdo->query("SELECT d.name AS domain, c.name AS country, g.name AS grape, r.name AS region, w.year, w.description, w.image FROM wines w JOIN domains d ON w.id_domain = d.id JOIN grapes g ON w.id_grape = g.id JOIN regions r ON w.id_region = r.id JOIN countries c ON w.id_country = c.id ORDER BY w.create_time DESC");
+        return $pdo->query("SELECT id, image, description, domain, year, grape, region, country, quantity FROM wines ORDER BY create_time DESC");
 
     } catch (\PDOException $th) {
         return false;
     }
+}
+
+
+function addWine($winesValues) {
+    $pdo = getPdoConnect();
+
+    $stmt = $pdo->prepare("INSERT INTO wines (domain, year, grape, region, country, description, image, quantity) VALUES (:domain, :year, :grape, :region, :country, :description, :image, :quantity)");
+    $stmt->bindParam(':domain', $winesValues['domain']);
+    $stmt->bindParam(':year', $winesValues['year']);
+    $stmt->bindParam(':grape', $winesValues['grape']);
+    $stmt->bindParam(':region', $winesValues['region']);
+    $stmt->bindParam(':country', $winesValues['country']);
+    $stmt->bindParam(':description', $winesValues['description']);
+    $stmt->bindParam(':image', $winesValues['image']);
+    $stmt->bindParam(':quantity', $winesValues['quantity']);
+
+    return $stmt->execute();
+}
+
+
+function deleteWine($id) {
+    $pdo = getPdoConnect();
+
+    $stmt = $pdo->prepare("DELETE FROM wines WHERE id = :id");
+    $stmt->bindParam(':id', $id);
+
+    return $stmt->execute();
 }

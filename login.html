@@ -19,7 +19,10 @@ ob_start();
         <form id="user-form" method="POST" action="login.html">
             <input type="mail" name="mail" placeholder="Mail" required>
             <input type="password" name="password" placeholder="Password" required>
-            <button type="submit" name="login">Confirm</button>
+            <div class="login-buttons">
+                <button type="submit" name="login">Confirm</button>
+                <a class="cancel-btn" href="index.html">Cancel</a>
+            </div>
         </form>
     </div>
 </body>

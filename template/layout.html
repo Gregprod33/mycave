@@ -14,10 +14,13 @@
 <body>
 	<header>
 		<nav>
-			<img class="img-nav" src="assets/img/src/logo/logo-large.png" alt="logo">
+			<a href="../index.html"><img class="img-nav" src="assets/img/src/logo/logo-large.png" alt="logo"></a>
 			<?php if(isset($_SESSION['user'])){ ?>
-				<p class="greeting">Welcome in your cellar <?php echo $_SESSION['user']['name'] ?> :)</p>
-			<a id="btn-nav" href="src/controllers/logout.php">Logout</a>
+				<p class="greeting">Welcome in your cellar <?php echo strtoupper($_SESSION['user']['name']) ?> :)</p>
+			<div class="nav-buttons">
+				<a class="btn-nav logout-btn" href="src/controllers/logout.php">Logout</a>
+				<a class="btn-nav" href="admin.html">Admin</a>
+			</div>
 			<?php } else { ?>
 			<a id="btn-nav" href="login.html">Login</a>
 			<?php } ?>

@@ -28,3 +28,12 @@
     @include font(bold, 15);
     cursor: pointer;
 }
+
+%cancel-btn {
+    border-radius: 15px;
+    border: none;
+    background-color: $pink;
+    color: $white;
+    @include font(bold, 15);
+    cursor: pointer;
+}

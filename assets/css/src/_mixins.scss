@@ -28,6 +28,16 @@
     text-align: $align;
 }
 
+@mixin form($width, $height) {
+    @include flex(center, center, column);
+    background-color: $wine-light;
+    border: 1px solid #888;
+    border-radius: 15px;
+    margin-top: 150px;
+    max-width: #{$width}px;
+    height: #{$height}px;
+}
+
 
 @mixin respond($breakpoint) {
     @if $breakpoint == phone-xs {

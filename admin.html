@@ -6,7 +6,7 @@ ob_start();
 ?>
 
 <div class="add-folder">
-    <a href="wine-add.html"><i class="fas fa-folder-plus fa-2x"></i></a>
+    <a href="wine-add.html"><i class="fas fa-folder-plus fa-2x">ADD WINE HERE</i></a>
 </div>
 
 <table>
@@ -23,6 +23,7 @@ ob_start();
     </thead>
     <?php foreach($wines as $wine) : ?>
     <tbody>
+        <?php $domain = $wine['domain']; ?>
         <td class="cell-img"><img class="stock-img" src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine"></td>
         <td><?= $wine['domain'] ?></td>
         <td><?= $wine['year'] ?></td>
@@ -30,15 +31,26 @@ ob_start();
         <td class="cell-region"><?= $wine['region'] ?></td>
         <td class="cell-country"><?= $wine['country'] ?></td>
         <td class="cell-description"><?= $wine['description'] ?></td>
-        <td>2</td>
-        <td class="cell-icons"><i class="fas fa-edit edit"></i><i class="fas fa-trash-alt delete"></i></td>
+        <td class="cell-quantity"><?= $wine['quantity'] ?></td>
+        <td class="cell-icons"><i class="fas fa-edit edit"></i><i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn"></i></td>
         <td class="cell-respond-edit"><i class="fas fa-arrow-circle-right fa-2x"></i></td>
     </tbody>
     <?php endforeach; ?>
 </table>
 
+<div id="myModal" class="modal">
 
-		
+    <!-- Modal content -->
+    <div id="content" class="modal-content">
+      <span class="close">&times;</span>
+      <p id="message"></p>
+      <p id="anchor"></p>
+    </div>
+  
+  </div>
+<!-- <button id="myBtn">Open Modal</button> -->
+
+
 
 
 <?php
