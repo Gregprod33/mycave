@@ -12,7 +12,9 @@ header {
 				width: 180px;
 				margin-bottom: 12px;
 			}	
-
+			.nav-buttons {
+				margin-top: 20px;
+			}
 			a.btn-nav {
 			@extend %button;
 			text-decoration: none;
@@ -20,13 +22,6 @@ header {
 
 			a.logout-btn {
 				margin-right: 25px;
-			}
-
-			.greeting {
-				@include font(bold, 16);
-				color: $pink;
-				margin-bottom: 15px;
-	
 			}
 
 			@include respond(tab-sm) {
@@ -37,6 +32,9 @@ header {
 				.greeting {
 					@include font(bold, 20);
 					margin-bottom: 0;
+				}
+				.nav-buttons {
+					margin-top: 0;
 				}
 			}
 

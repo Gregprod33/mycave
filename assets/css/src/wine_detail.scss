@@ -1,0 +1,108 @@
+
+
+
+.wine-detail {
+    border-radius: 15px;
+    background-color: $white;
+    margin-top: 200px;
+    padding: 10px 30px;
+    position: relative;
+    span {
+        @include font(bold, 14);
+        color: $pink;
+
+        @include respond(phone) {
+            @include font(bold, 16);
+        }
+    }
+    @include flex(center, center, column, wrap);
+
+    .fa-arrow-circle-left {
+        color: $wine-dark;
+        position: absolute;
+        top: -100px;
+        left: 0px;
+
+        &:hover {
+            color: $pink;
+        }
+    }
+
+    .icons {
+        height: 100px;
+        @include flex(center, center);
+        margin-top: 25px;
+        position: relative;
+            i{
+                color: $wine-dark;
+                &:hover {
+                    cursor: pointer;
+                    color: $pink;
+                }
+            }
+            &>* { margin: 0 20px;}
+            &::after {
+                content: '';
+                width: 85%;
+                height: 2px;
+                background: $wine-dark;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+        }
+
+    }
+
+    .up-detail-wine {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        width: 100%;
+        img {
+            width: 200px;
+            margin-left: -50px;
+        }
+
+        .detail-wine-infos {
+            grid-column: span 10;
+            margin-left: -15px;
+            margin-top: 30px;
+
+            .wine-name, .wine-year, .wine-grape, .wine-region, .wine-country  {
+                @include font(bold, 16);
+                color: $wine-dark;
+                margin:15px 0;
+
+                @include respond(phone) {
+                    @include font(bold, 18);
+                }
+            }
+
+            @include respond(phone) {
+                margin-left: 30px;
+            }
+
+            @include respond(tab-sm) {
+                margin-left: 120px;
+            }
+
+            @include respond(tab-port) {
+                margin-left: 250px;
+            }
+            
+        }     
+    }
+
+    .down-detail-wine {
+        .wine-description {
+            color: $wine-dark;
+            @include font(bold, 16, center);
+            margin-top: 25px;
+
+            @include respond(phone) {
+                @include font(bold, 18, center);
+            }
+        }
+    }
+
+}

@@ -1,121 +1,137 @@
 body {
 background-color: $bg;
-    .wine-card {
-        background-color: $white;
-        border-radius: 15px;
-        padding: 10px;
-        text-align: center;
-        margin-bottom: 50px;
-
-        .wine-body {
-            display: flex;
-            .wine-description {
-                display: none;
-            }
-     
-            img.wine-img {
-                width: 120px;
-                margin-left: -25px;
+    .wine-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        .wine-card {
+            @include respond(tab-sm){
+                grid-column: span 6;
             }
 
-            .wine-infos {
-                @include flex(center, flex-start, column);
-                .wine-name {
-                    @include font(bold, 20);
-                    color: $wine-dark;
-                    margin: -10px 0 10px -25px;
-                }
-
-                .wine-year {
-                    @include font(bold, 18);
-                    color: $wine-light;
-                    margin: 0 0 10px -25px;
-                }
-
-                .wine-grape {
-                    @include font(bold, 16);
-                    color: $pink;
-                    margin: 0 0 10px -15px;
-                }
-
-                .wine-region {
-                    @include font(regular, 14);
-                    color: $purple;
-                    margin: 0 0 10px -5px;
-                }
-
-                .wine-country {
-                    @include font(regular, 14);
-                    color: $wine-dark;
-                    margin: 0 0 10px 5px;
-                }
-
+            @include respond(tab-port){
+                grid-column: span 4;
             }
+            grid-column: span 12;
+            background-color: $white;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            height: 300px;
 
-            @include respond(phone) {
-                @include flex(center, center);
-                text-align: center;
-                margin-bottom: 15px;
-                
-                img.wine-img {
-                   display: inline;
-                   margin-left: -150px;
-                   margin-bottom: -40px;
-                   width: 150px;
-                }
-                .wine-infos {
-                    text-align: center;
-                    .wine-name, .wine-year, .wine-region, .wine-country, .wine-grape {
-                        margin: 10px auto;
-                        text-align: center;
-                    }
-                    
-                }
-            }
-
-            @include respond(tab-sm) {
-                @include flex(center, center, row-reverse);
+            .wine-body {
+                display: flex;
                 .wine-description {
-                    display: block;
-                    padding-right: 15px;
-                    color: $wine-dark;
+                    display: none;
                 }
+        
                 img.wine-img {
-                    display: inline;
-                    margin-left: 0;
-                    margin-bottom: 0;
-                    width: 150px;
+                    width: 120px;
+                    margin-left: -10px;
                 }
+
                 .wine-infos {
-                    text-align: center;
-                    width: 400px;
-                    .wine-name, .wine-year, .wine-region, .wine-country, .wine-grape {
-                        margin: 10px auto;
-                        text-align: center;
+                    @include flex(center, flex-start, column);
+                    .wine-name {
+                        @include font(bold, 20);
+                        color: $wine-dark;
+                        margin: -10px 0 10px -25px;
+                        @include respond(phone) {
+                            @include font(bold, 22);
+                        }
+                        @include respond(tab-port) {
+                            @include font(bold, 24);
+                        }
                     }
-                
-                
+
+                    .wine-year {
+                        @include font(bold, 18);
+                        color: $wine-light;
+                        margin: 0 0 10px -25px;
+                        @include respond(phone) {
+                            @include font(bold, 20);
+                        }
+                        @include respond(tab-port) {
+                            @include font(bold, 22);
+                        }
+                    }
+
+                    .wine-grape {
+                        @include font(bold, 16);
+                        color: $pink;
+                        margin: 0 0 10px -15px;
+                        @include respond(phone) {
+                            @include font(bold, 18);
+                        }
+                        @include respond(tab-port) {
+                            @include font(bold, 20);
+                        }
+                    }
+
+                    .wine-region {
+                        @include font(regular, 14);
+                        color: $purple;
+                        margin: 0 0 10px -5px;
+                        @include respond(phone) {
+                            @include font(bold, 16);
+                        }
+                        @include respond(tab-port) {
+                            @include font(bold, 18);
+                        }
+                    }
+
+                    .wine-country {
+                        @include font(regular, 14);
+                        color: $wine-dark;
+                        margin: 0 0 10px 5px;
+                        @include respond(phone) {
+                            @include font(bold, 16);
+                        }
+                        @include respond(tab-port) {
+                            @include font(bold, 18);
+                        }
+                    }
+
                 }
-                
-            }
 
-        }
-        .wine-btn {
-            @extend %button-card;
-        }
-
-
-        @include respond(tab-sm) {
+                @include respond(phone) {
+                    @include flex(center, center);
+                    text-align: center;
+                    margin-bottom: 15px;
+                    
+                    img.wine-img {
+                    display: inline;
+                    margin-left: -30px;
+                    margin-bottom: -40px;
+                    width: 150px;
+                    }
+                    .wine-infos {
+                        text-align: center;
+                        .wine-name, .wine-year, .wine-region, .wine-country, .wine-grape {
+                            margin: 10px auto;
+                            text-align: center;
+                        }           
+                    }
+                }
+            }   
             .wine-btn {
+                @extend %button-card;
+                position: absolute;
+                bottom: 10px;
+            } 
+            .more-infos {
+                margin-top: 15px;
+                color: $wine-dark;
                 display: none;
-            }
-        }
+                .wine-description {
+                    @include font(italic, 16, justify );
+                }
+            } 
+        }   
 
-      
     }
-    .more-infos {
-        display: none;
-        color: $wine-dark;
-    }
+    
 }
 

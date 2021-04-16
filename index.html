@@ -4,29 +4,27 @@ require_once('src/models/wines.php');
 $wines = getWines();
 ob_start();
 ?>
-
+<div class="wine-grid">
 <?php foreach($wines as $wine) : ?>
-<div class="wine-card">
-	<div class="wine-body">
-		<p class="wine-description"><?= $wine['description'] ?></p>
-		<img class="wine-img" src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine">
-		<div class="wine-infos">
-			<h2 class="wine-name"><?= $wine['domain'] ?></h2>
-			<h3 class="wine-year"><?= $wine['year'] ?></h3>
-			<p class="wine-grape"><?= $wine['grape'] ?></p>
-			<p class="wine-region"><?= $wine['region'] ?></p>
-			<p class="wine-country"><?= $wine['country'] ?></p>
+	<div class="wine-card">
+		<div class="wine-body">
+			<p class="wine-description"><?= $wine['description'] ?></p>
+			<img class="wine-img" src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine">
+			<div class="wine-infos">
+				<h2 class="wine-name"><?= $wine['domain'] ?></h2>
+				<h3 class="wine-year"><?= $wine['year'] ?></h3>
+				<p class="wine-grape"><?= $wine['grape'] ?></p>
+				<p class="wine-region"><?= $wine['region'] ?></p>
+				<p class="wine-country"><?= $wine['country'] ?></p>
+			</div>
+		</div>
+		<a href="wine_detail.html?id=<?php echo $wine['id'] ?>" class="wine-btn">+ d'infos</a>
+		<div class="more-infos">
+			<p class="wine-description"><?= $wine['description'] ?></p>
 		</div>
 	</div>
-	<button class="wine-btn">+ d'infos</button>
-	<div class="more-infos">
-		<p class="wine-description"><?= $wine['description'] ?></p>
-	</div>
-</div>
-
 <?php endforeach; ?>
-
-		
+</div>
 
 
 <?php

@@ -7,6 +7,9 @@
 
    .fas{
        color: $wine-light;
+       &:hover {
+        color: $pink;
+    }
    }
    
 }
@@ -104,6 +107,9 @@ table {
 
             td.cell-icons i {
                 display: inline;
+                &:hover {
+                    color: $pink;
+                }
             }
 
             td img {
@@ -136,42 +142,55 @@ table {
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
   }
   
-  /* Modal Content/Box */
-  .modal-content {
-    @include flex(center, center, column);
-    position: relative;
-    background-color: $wine-light;
-    @include font(bold, 18);
-    color: $white;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    height: 100px; /* Could be more or less, depending on screen size */
-  }
+/* Modal Content/Box */
+.modal-content {
+@include flex(center, center, column);
+position: relative;
+background-color: $wine-light;
+@include font(bold, 18);
+color: $white;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 60%;
+height: 100px; /* Could be more or less, depending on screen size */
+}
 
-  #anchor {
-      @extend %button-form;
-      margin-top: 30px;
-      display: inline-block;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+
+.btn-modal-container {
+    @include flex(center, center);
+    margin-top: 30px;
+    #anchor {
+        @extend %button-form;
+        padding: 11px 15px;
+    }
+    
+    .cancel-btn {
+    @extend %cancel-btn;
+    padding: 11px 15px;
+    margin: 0 10px;
+    }
+
+
+}
+
+
+/* The Close Button */
+.close {
+color: #aaa;
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
     
 
 

@@ -6,7 +6,7 @@ ob_start();
 ?>
 
 <div class="add-folder">
-    <a href="wine-add.html"><i class="fas fa-folder-plus fa-2x">ADD WINE HERE</i></a>
+    <a href="wine_add.html"><i class="fas fa-folder-plus fa-2x"></i></a>
 </div>
 
 <table>
@@ -32,8 +32,8 @@ ob_start();
         <td class="cell-country"><?= $wine['country'] ?></td>
         <td class="cell-description"><?= $wine['description'] ?></td>
         <td class="cell-quantity"><?= $wine['quantity'] ?></td>
-        <td class="cell-icons"><i class="fas fa-edit edit"></i><i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn"></i></td>
-        <td class="cell-respond-edit"><i class="fas fa-arrow-circle-right fa-2x"></i></td>
+        <td class="cell-icons"><a href="wine_update.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-edit edit"></i></a><i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn"></i></td>
+        <td class="cell-respond-edit"><a href="wine_detail_admin.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-arrow-circle-right fa-2x"></i></a></td>
     </tbody>
     <?php endforeach; ?>
 </table>
@@ -42,9 +42,12 @@ ob_start();
 
     <!-- Modal content -->
     <div id="content" class="modal-content">
-      <span class="close">&times;</span>
-      <p id="message"></p>
-      <p id="anchor"></p>
+        <span class="close">&times;</span>
+        <p id="message"></p>
+        <div class="btn-modal-container">
+            <p id="anchor"></p>
+            <a class="cancel-btn" href="admin.html">Cancel</a>
+        </div>
     </div>
   
   </div>

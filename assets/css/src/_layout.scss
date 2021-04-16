@@ -1,6 +1,14 @@
 body {
 	background-color: $bg;
 
+    .greeting {
+        @include font(bold, 16);
+        color: $pink;
+        margin-bottom: 15px;
+        margin-top: 25px;
+        text-align: center;
+    }
+
     form {
         margin: 0 auto;
         text-align: center;
@@ -21,13 +29,17 @@ body {
         .fa-search {
             color: $wine-light;
         }
+
+        
 }
 
-
-
-
-
-
+@include respond(tab-sm) {
+    .greeting {
+        @include font(bold, 20);
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
 
 
 }

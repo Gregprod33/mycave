@@ -1,0 +1,46 @@
+<?php
+$pageTitle = 'Edit Wine';
+require_once('src/controllers/wine_update.php');
+?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cave | <?php echo $pageTitle ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/dist/style.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form enctype="multipart/form-data" id="update-form" method="POST" action="wine_update.html?id=<?php echo $wine['id'] ?>">
+            <h1 class="wine-add-greeting"><?php echo strtoupper($_SESSION['user']['name']) ?>, you can update your wine here :)</h1>
+            <img src="assets/img/src/png/<?php echo $wine['image'] ?>" alt="wine">
+            <label for= "domain">Name</label>
+            <input type="text" id="domain" name="domain" placeholder="Name" value="<?php echo $wine['domain'] ?>">
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year" placeholder="Year" value="<?php echo $wine['year'] ?>">
+            <label for="grape">Grape</label>
+            <input type="text" id="grape" name="grape" placeholder="Grape" value="<?php echo $wine['grape'] ?>">
+            <label for="region">Region</label>
+            <input type="text" id="region" name="region" placeholder="Region" value="<?php echo $wine['region'] ?>">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="Country" value="<?php echo $wine['country'] ?>"> 
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="10" cols="35" v><?php echo $wine['description'] ?></textarea>
+            <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+            <label for="userfile">Image</label>
+            <input type="file" name="userfile" class="userfile">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" step="1" value="<?php echo $wine['quantity'] ?>"> 
+            <div class="add-buttons">
+                <button class="confirm-btn" type="submit" name="update">Update</button>
+                <a class="cancel-btn" href="admin.html">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

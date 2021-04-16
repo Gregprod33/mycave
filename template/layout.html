@@ -16,7 +16,6 @@
 		<nav>
 			<a href="../index.html"><img class="img-nav" src="assets/img/src/logo/logo-large.png" alt="logo"></a>
 			<?php if(isset($_SESSION['user'])){ ?>
-				<p class="greeting">Welcome in your cellar <?php echo strtoupper($_SESSION['user']['name']) ?> :)</p>
 			<div class="nav-buttons">
 				<a class="btn-nav logout-btn" href="src/controllers/logout.php">Logout</a>
 				<a class="btn-nav" href="admin.html">Admin</a>
@@ -27,6 +26,9 @@
 		</nav>
 	</header>
 	
+	<?php if(isset($_SESSION['user'])){ ?>
+		<p class="greeting">Welcome in your cellar <?php echo strtoupper($_SESSION['user']['name']) ?> :)</p>
+		<?php } ?>
 	<div class="container">
 		<form method="" action="">
 			<input type="text" name="search" placeholder="ex: France, syrah, 2009, California... ">
