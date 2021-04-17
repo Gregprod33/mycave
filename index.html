@@ -1,9 +1,9 @@
 <?php
 $pageTitle = 'La cave';
-require_once('src/models/wines.php');
-$wines = getWines()[0];
-$currentPage = getWines()[1];
-$pages = getWines()[2];
+require_once('src/models/index.php');
+$wines = getLimitWines()[0];
+$currentPage = getLimitWines()[1];
+$pages = getLimitWines()[2];
 ob_start();
 ?>
 
@@ -47,7 +47,7 @@ ob_start();
 		<?php for($i = $currentPage; $i < $pages; $i++) : ?>
 			<a class="link-pages" href="index.html?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
 		<?php endfor ?>
-		<?php $currentPage = getWines()[1]; ?>
+		<?php $currentPage = getLimitWines()[1]; ?>
 	<a href="index.html?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
 	<?php endif ?>
 </div>
