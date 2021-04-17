@@ -1,0 +1,22 @@
+footer {
+	@include background("header_bg_1.png", 130);
+    text-align: center;
+    @include flex(center, center, column);
+    padding: 20px 0;
+    
+    img {
+        width: 120px;
+        margin-bottom: 15px;  
+    }
+    .footer {
+        @include font(regular, 16);
+        color: $pink;
+        margin-bottom: 15px;
+    }
+
+    .fa-linkedin {
+        &:hover {
+            color: $pink;
+        }
+    }
+}

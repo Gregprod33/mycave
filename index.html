@@ -1,9 +1,17 @@
 <?php
 $pageTitle = 'La cave';
 require_once('src/models/wines.php');
-$wines = getWines();
+$wines = getWines()[0];
+$currentPage = getWines()[1];
+$pages = getWines()[2];
 ob_start();
 ?>
+
+<form method="" action="">
+	<input type="text" id="search" name="search" placeholder="ex: France, syrah, 2009, California... ">
+	<i class="fas fa-search fa-lg"></i>
+</form>
+
 <div class="wine-grid">
 <?php foreach($wines as $wine) : ?>
 	<div class="wine-card">
@@ -24,6 +32,24 @@ ob_start();
 		</div>
 	</div>
 <?php endforeach; ?>
+</div>
+
+<div class="pages">
+	<?php if($currentPage > 1) : ?>
+		<a href="index.html?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
+		<?php $currentPage = getWines()[1]; ?>
+		<?php for($i = $currentPage; $i  > 1; $i--) : ?>
+			<a class="link-pages" href="index.html?page=<?php echo $currentPage - 1 ?>"><?php echo ($currentPage + 1) - $i  ?></a>
+		<?php endfor ?>
+	<?php endif ?>
+
+	<?php if (($currentPage < $pages)) : ?>
+		<?php for($i = $currentPage; $i < $pages; $i++) : ?>
+			<a class="link-pages" href="index.html?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
+		<?php endfor ?>
+		<?php $currentPage = getWines()[1]; ?>
+	<a href="index.html?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
+	<?php endif ?>
 </div>
 
 

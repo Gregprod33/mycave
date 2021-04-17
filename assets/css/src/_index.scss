@@ -120,6 +120,8 @@ background-color: $bg;
                 @extend %button-card;
                 position: absolute;
                 bottom: 10px;
+                left: 50ù;
+                transform: translate(-50%);
             } 
             .more-infos {
                 margin-top: 15px;
@@ -131,6 +133,24 @@ background-color: $bg;
             } 
         }   
 
+    }
+
+    .pages {
+        margin: 50px 0;
+        .pages-icon {
+            color: $wine-dark;
+            &:hover {
+                color: $pink;
+            }
+        }
+        .link-pages {
+            @include font(bold, 25);
+            color: $wine-dark;
+            margin: 0 15px;
+            &:hover {
+               color: $pink;
+            } 
+        }
     }
     
 }

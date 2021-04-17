@@ -1,8 +1,5 @@
 header {
-	background-image: url('../../img/src/header_bg_1.png');
-	background-position: center;
-	background-size: cover;
-	height: 150px;
+	@include background("header_bg_1.png", 150);
 
 	nav {
 			padding: 0 40px;

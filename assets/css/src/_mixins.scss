@@ -7,6 +7,13 @@
 	flex-wrap: $wrap;
 }
 
+@mixin background($url, $height, $pos: center, $size: cover) {
+    background-image: url('../../../assets/img/dist/#{$url}');
+    height: #{$height}px;
+    background-position: $pos;
+    background-size: $size;
+}
+
 @mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
     @font-face {
 		font-family: $font-family;
