@@ -1,12 +1,14 @@
 <?php
 $pageTitle = 'Stock';
-require_once('src/models/wines.php');
-$wines = getWines();
+require_once('src/models/admin.php');
+$wines = getLimitWines()[0];
+$currentPage = getLimitWines()[1];
+$pages = getLimitWines()[2];
 ob_start();
 ?>
 
 <form method="" action="">
-	<input type="text" name="search" placeholder="ex: France, syrah, 2009, California... ">
+	<input id="search_admin" type="text" name="search" placeholder="ex: France, syrah, 2009, California... ">
 	<i class="fas fa-search fa-lg"></i>
 </form>
 
@@ -14,7 +16,7 @@ ob_start();
     <a href="wine_add.html"><i class="fas fa-folder-plus fa-2x"></i></a>
 </div>
 
-<table>
+<table id="show_admin_filter">
     <thead>
         <th class="head-img">Image</th>
         <th>Name</th>
@@ -29,7 +31,7 @@ ob_start();
     <?php foreach($wines as $wine) : ?>
     <tbody>
         <?php $domain = $wine['domain']; ?>
-        <td class="cell-img"><img class="stock-img" src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine"></td>
+        <td class="cell-img"><img class="stock-img" src="assets/img/dist/png/<?= $wine['image'] ?>" alt="wine"></td>
         <td><?= $wine['domain'] ?></td>
         <td><?= $wine['year'] ?></td>
         <td><?= $wine['grape'] ?></td>
@@ -54,9 +56,25 @@ ob_start();
             <a class="cancel-btn" href="admin.html">Cancel</a>
         </div>
     </div>
-  
   </div>
-<!-- <button id="myBtn">Open Modal</button> -->
+
+  <div class="pages">
+	<?php if($currentPage > 1) : ?>
+		<a href="admin.html?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
+		<?php $currentPage = getLimitWines()[1]; ?>
+		<?php for($i = $currentPage; $i  > 1; $i--) : ?>
+			<a class="link-pages" href="admin.html?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
+		<?php endfor ?>
+	<?php endif ?>
+
+	<?php if (($currentPage < $pages)) : ?>
+		<?php for($i = $currentPage; $i < $pages; $i++) : ?>
+			<a class="link-pages" href="admin.html?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
+		<?php endfor ?>
+		<?php $currentPage = getLimitWines()[1]; ?>
+	<a href="admin.html?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
+	<?php endif ?>
+</div>
 
 
 

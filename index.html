@@ -12,7 +12,8 @@ ob_start();
 	<i class="fas fa-search fa-lg"></i>
 </form>
 
-<div class="wine-grid">
+
+<div id="show_filter" class="wine-grid">
 <?php foreach($wines as $wine) : ?>
 	<div class="wine-card">
 		<div class="wine-body">
@@ -37,9 +38,9 @@ ob_start();
 <div class="pages">
 	<?php if($currentPage > 1) : ?>
 		<a href="index.html?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
-		<?php $currentPage = getWines()[1]; ?>
+		<?php $currentPage = getLimitWines()[1]; ?>
 		<?php for($i = $currentPage; $i  > 1; $i--) : ?>
-			<a class="link-pages" href="index.html?page=<?php echo $currentPage - 1 ?>"><?php echo ($currentPage + 1) - $i  ?></a>
+			<a class="link-pages" href="index.html?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
 		<?php endfor ?>
 	<?php endif ?>
 
