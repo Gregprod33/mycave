@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+require_once('acl.php');
 require_once('../models/wines.php');
 $test = $_GET['id'];
 
@@ -13,7 +14,7 @@ if(isset($_GET['id'])) {
     echo 'error on $test';
 }
 
-header('Location: ../../admin.html');
+header('Location: ./admin.html');
 exit;
 
 ?>

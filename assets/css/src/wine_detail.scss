@@ -89,6 +89,9 @@
             @include respond(tab-port) {
                 margin-left: 250px;
             }
+            @include respond(tab-land) {
+                margin-left: 350px;
+            }
             
         }     
     }

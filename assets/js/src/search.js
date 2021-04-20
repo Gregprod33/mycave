@@ -1,5 +1,4 @@
 $(() => {
-
     $("#search").on('keyup',() => {
         let userTypeIn = $("#search").val();
         $.ajax({

@@ -10,7 +10,7 @@ session_start();
  */
 if(isset($_SESSION['user'])){
     header('Location: ./index.html');
-    exit;
+        exit;
 }
 
 if(isset($_POST['login'])){
@@ -22,7 +22,6 @@ if(isset($_POST['login'])){
         echo 'Wrong password, try again';
     }else{
         $_SESSION['user'] = $user;
-        
         header('Location: ./admin.html');
         exit;
     }

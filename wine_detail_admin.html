@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('src/controllers/wine_detail.php');
 $pageTitle = 'Wine Detail -' . $wine['domain'];
 ?>
@@ -32,7 +33,10 @@ $pageTitle = 'Wine Detail -' . $wine['domain'];
                 <p class="wine-description"><span>Description : </span><?= $wine['description'] ?></p>
             </div>
             <div class="icons">
-                <a href="wine_update.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-edit fa-lg edit"></i></a><i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn fa-lg"></i>
+                <a href="wine_update.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-edit fa-lg edit"></i></a>
+                <?php if($_SESSION['user']['weight'] > 50) : ?>
+                <i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn fa-lg"></i>
+                <?php endif ?>
             </div>
         </div>
     </div>

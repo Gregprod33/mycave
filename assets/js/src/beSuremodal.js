@@ -1,10 +1,3 @@
-$(()=> {
-
-	//////// evenement click affichage des infos description sur index.html/////////
-// $(document).on('click', ".wine-btn", function(e) {
-// 	e.preventDefault();
-// 	$(this).next('.more-infos').slideToggle();
-// })
 
 
 /////////affichage modale sur admin.html début/////////
@@ -31,28 +24,12 @@ for (let i = 0; i < btn.length; i++) {
 }
     
 
-span.onclick = function() {
+span.addEventListener('click', () => {
   modal.style.display = "none";
-}
+});
 
-window.onclick = function(event) {
+window.addEventListener ('click', (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
-/////////affichage modale sur admin.html FIN/////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+});

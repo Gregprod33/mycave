@@ -7,6 +7,11 @@ function getPdoConnect(){
     return $pdo;
 }
 
+if(!isset($_SESSION['user'])) {
+    header('Location: ../../index.html');
+    exit;
+}
+
 function getLimitWines() {
     try {
         $pdo = getPdoConnect(); 

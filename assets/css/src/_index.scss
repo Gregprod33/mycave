@@ -1,12 +1,73 @@
 body {
 background-color: $bg;
+
+    .alert_role_message {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.8);
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+
+        .alert_role_message_content {
+            border-radius: 15px;
+            text-align: center;
+            margin: 15% auto;
+            background-color: $wine-light;
+            border: 1px solid #888;
+            position: relative;
+            padding: 15px 30px;
+            width: 30%;
+            height: 80px;
+            @include font(bold, 20);
+            color: $white;
+            .close {
+                color: #aaa;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                font-size: 28px;
+                font-weight: bold;
+                }
+                
+                .close:hover,
+                .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+                }
+
+                p {
+                    text-align: center;
+                    position: absolute;
+                    width: 80%;
+                    top: 50%;
+                    left: 50%;
+                    transform : translate(-50%, -50%);
+                }
+                a {
+                    color: $pink;
+                    &:hover {
+                        color: $wine-dark;
+                    }
+                }
+        }
+        
+    }
     .wine-grid {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         gap: 30px;
         .wine-card {
+            @include respond(phone) {
+                height: 250px;
+            }
             @include respond(tab-sm){
                 grid-column: span 6;
+                height: 300px;
             }
 
             @include respond(tab-port){
@@ -19,7 +80,7 @@ background-color: $bg;
             text-align: center;
             margin-bottom: 50px;
             position: relative;
-            height: 300px;
+            height: 200px;
 
             .wine-body {
                 display: flex;
@@ -138,6 +199,7 @@ background-color: $bg;
     .pages {
         margin: 50px 0;
         .pages-icon {
+            position: static;
             color: $wine-dark;
             &:hover {
                 color: $pink;

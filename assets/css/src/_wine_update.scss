@@ -1,4 +1,18 @@
+.fa-arrow-circle-left {
+    color: $wine-dark;
+    position: absolute;
+    top: -100px;
+    left: 0px;
+
+    &:hover {
+        color: $pink;
+    }
+}
+
+
 #update-form {
+    position: relative;
+    margin-bottom: 100px;
     @include form(600, 1100);
     h1 {
         margin-bottom: 25px;

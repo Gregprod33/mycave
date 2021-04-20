@@ -1,6 +1,12 @@
 <?php 
 session_start();
 require_once('src/models/wines.php');
+
+if(!isset($_SESSION['user'])) {
+    header('Location: ./index.html');
+    exit;
+}
+
 $wine = getWineDetail($_GET['id']);
 
 

@@ -1,0 +1,47 @@
+<?php
+session_start();
+$pageTitle = 'Add User';
+require_once('src/controllers/user_add.php');
+require_once('src/controllers/acl.php');
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cave | <?php echo $pageTitle ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/dist/style.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="user-form" method="POST" action="user_add.html">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="mail" name="mail" placeholder="Mail" required>
+            <input type="text" name="password" placeholder="Password" required>
+            <div class="radio">
+                <fieldset>
+                    <legend>User's role weight</legend>
+                    <div class="administrator">
+                        <label for="administrator">Administrator</label>
+                        <input type="radio" id="administrator" name="radio" value="admin">
+                    </div>
+                    <div class="editor">  
+                        <label for="editor">Editor</label>
+                        <input type="radio" id="editor" name="radio" value="editor">
+                    </div>
+                </fieldset>
+                
+            </div>
+            <div class="login-buttons">
+                <button type="submit" name="addUser">Confirm</button>
+                <a class="cancel-btn" href="admin.html">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

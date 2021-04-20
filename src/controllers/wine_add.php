@@ -1,6 +1,12 @@
 <?php 
 session_start();
 require_once('src/models/wines.php');
+
+if(!isset($_SESSION['user'])) {
+    header('Location: ./index.html');
+    exit;
+}
+
 if(isset($_POST['add'])) {
     if($_FILES['userfile']['name'] == '') {
         $image = 'generic.png';
