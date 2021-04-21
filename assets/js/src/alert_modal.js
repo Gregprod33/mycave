@@ -18,7 +18,7 @@ span.addEventListener('click', () => {
   })
   
   window.addEventListener ('click', (event) => {
-    if (event.target == modal) {
+    if (event.target == modalAdmin) {
       modalAdmin.style.display = "none";
     }
 })
