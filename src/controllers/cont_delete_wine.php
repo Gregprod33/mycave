@@ -14,7 +14,7 @@ if(isset($_GET['id'])) {
     echo 'error on $test';
 }
 
-header('Location: ./admin.html');
+header('Location: ../../admin.php');
 exit;
 
 ?>

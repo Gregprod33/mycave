@@ -1,5 +1,13 @@
+html {
+    height: 100%;
+}
+
+
 body {
 	background-color: $bg;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 150px;
 
     .greeting {
         @include font(bold, 16);
@@ -39,6 +47,13 @@ body {
         margin-bottom: 0;
         text-align: center;
     }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 

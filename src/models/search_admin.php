@@ -17,8 +17,8 @@ function getSearchWines($userSearch) {
         $stmt->execute();
         while($domains = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $domain = $domains['domain'];
-            $anchor_one = 'wine_update.html?id=' . $domains['id'];
-            $anchor_two = 'wine_detail_admin.html?id=' . $domains['id'];
+            $anchor_one = 'wine_update.php?id=' . $domains['id'];
+            $anchor_two = 'wine_detail_admin.php?id=' . $domains['id'];
             $image = 'assets/img/src/png/' . $domains['image'];
             echo '<tbody>';
             echo '<td class="cell-img"><img class="stock-img" src=' . $image . '  alt="wine"></td>';
@@ -32,7 +32,7 @@ function getSearchWines($userSearch) {
             echo '<td class="cell-icons">';
             echo '<div class="flex-icons">';
             echo '<a href=' . $anchor_one . '><i class="fas fa-edit edit"></i></a>';
-            echo '<i id="btn" data-id=' . $domains['id'] . ' data-domain=' . $domain . ' class="fas fa-trash-alt myBtn"></i>';
+            echo '<i id="btn" data-id=' . $domains['id'] . ' data-domain="' . $domain . '" class="fas fa-trash-alt myBtn"></i>'; 
             echo '</div>';
             echo '</td>';
             echo '<td class="cell-respond-edit"><a href=' . $anchor_two . '><i class="fas fa-arrow-circle-right fa-2x"></i></a></td>';

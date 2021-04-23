@@ -26,7 +26,7 @@ $res = isset($tabPageAdmin[$currentPage]);
 //Alors on redirige vers le formulaire de login 
 if( $res === true && $_SESSION['user']['weight'] < $tabPageAdmin[$currentPage]){
     $_SESSION['msg_flash'] = 'Access Denied' . '<br>' . 'Please contact the webmaster';
-    header('Location: ../../index.html');
+    header('Location: ../../index.php');
     exit;
 }
 

@@ -2,7 +2,7 @@
 $pageTitle = 'Stock';
 require_once('src/controllers/acl.php');
 session_start();
-require_once('src/models/admin.php');
+require_once('src/models/model_admin.php');
 $wines = getLimitWines()[0];
 $currentPage = getLimitWines()[1];
 $pages = getLimitWines()[2];
@@ -16,9 +16,9 @@ ob_start();
 
 <div class="add-icons">
     <?php if($_SESSION['user']['weight'] > 50) : ?>
-    <a href="user_add.html"><i class="fas fa-user-plus fa-2x add-user"></i></a>
+    <a href="user_add.php"><i class="fas fa-user-plus fa-2x add-user"></i></a>
     <?php endif ?>
-    <a href="wine_add.html"><i class="fas fa-folder-plus fa-2x add-wine"></i></a>  
+    <a href="wine_add.php"><i class="fas fa-folder-plus fa-2x add-wine"></i></a>  
 </div>
 
 <table id="show_admin_filter">
@@ -46,7 +46,7 @@ ob_start();
         <td class="cell-quantity"><?= $wine['quantity'] ?></td>
         <td class="cell-icons">
             <div class="flex-icons">
-                <a href="wine_update.html?id=<?php echo $wine['id'] ?>">
+                <a href="wine_update.php?id=<?php echo $wine['id'] ?>">
                     <i class="fas fa-edit edit"></i>
                 </a>
                 <?php if($_SESSION['user']['weight'] > 50) : ?>
@@ -54,7 +54,7 @@ ob_start();
                 <?php endif ?>
             </div>
         </td>
-        <td class="cell-respond-edit"><a href="wine_detail_admin.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-arrow-circle-right fa-2x"></i></a></td>
+        <td class="cell-respond-edit"><a href="wine_detail_admin.php?id=<?php echo $wine['id'] ?>"><i class="fas fa-arrow-circle-right fa-2x"></i></a></td>
     </tbody>
     <?php endforeach; ?>
 </table>
@@ -65,26 +65,26 @@ ob_start();
         <p id="message"></p>
         <div class="btn-modal-container">
             <p id="anchor"></p>
-            <a class="cancel-btn" href="admin.html">Cancel</a>
+            <a class="cancel-btn" href="admin.php">Cancel</a>
         </div>
     </div>
 </div>
 
   <div class="pages">
 	<?php if($currentPage > 1) : ?>
-		<a href="admin.html?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
+		<a href="admin.php?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
 		<?php $currentPage = getLimitWines()[1]; ?>
 		<?php for($i = $currentPage; $i  > 1; $i--) : ?>
-			<a class="link-pages" href="admin.html?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
+			<a class="link-pages" href="admin.php?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
 		<?php endfor ?>
 	<?php endif ?>
 
 	<?php if (($currentPage < $pages)) : ?>
 		<?php for($i = $currentPage; $i < $pages; $i++) : ?>
-			<a class="link-pages" href="admin.html?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
+			<a class="link-pages" href="admin.php?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
 		<?php endfor ?>
 		<?php $currentPage = getLimitWines()[1]; ?>
-	<a href="admin.html?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
+	<a href="admin.php?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
 	<?php endif ?>
 </div>
 
@@ -93,5 +93,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require_once('template/layout.html');
+require_once('template/layout.php');
 ?>

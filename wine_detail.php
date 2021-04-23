@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('src/controllers/wine_detail.php');
+require_once('src/controllers/cont_wine_detail.php');
 $pageTitle = 'Wine Detail -' . $wine['domain'];
 ?>
 
@@ -15,18 +15,16 @@ $pageTitle = 'Wine Detail -' . $wine['domain'];
     <link rel="stylesheet" href="assets/css/dist/style.min.css">
 </head>
 
-
 <header>
     <nav>
-        <a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+        <a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
     </nav>
 </header>
-
 
 <body>
     <div class="container">
         <div class="wine-detail">
-            <a href="admin.html"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+            <a href="index.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <div class="up-detail-wine">
                 <img src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine" alt="image">
                 <div class="detail-wine-infos">
@@ -40,30 +38,12 @@ $pageTitle = 'Wine Detail -' . $wine['domain'];
             <div class="down-detail-wine">
                 <p class="wine-description"><span>Description : </span><?= $wine['description'] ?></p>
             </div>
-            <div class="icons">
-                <a href="wine_update.html?id=<?php echo $wine['id'] ?>"><i class="fas fa-edit fa-lg edit"></i></a>
-                <?php if($_SESSION['user']['weight'] > 50) : ?>
-                <i id="btn" data-id="<?php echo $wine['id'] ?>" data-domain="<?php echo $wine['domain'] ?>" class="fas fa-trash-alt myBtn fa-lg"></i>
-                <?php endif ?>
-            </div>
         </div>
     </div>
 
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div id="content" class="modal-content">
-            <span class="close">&times;</span>
-            <p id="message"></p>
-            <div class="btn-modal-container">
-                <p id="anchor"></p>
-                <a class="cancel-btn" href="admin.html">Cancel</a>
-            </div>
-        </div>
-      
-      </div>
 
-      <footer>
-		<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+    <footer>
+		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		<p class="footer">©2021 made with ♥ and not drunk !</p>
 		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
 	</footer>

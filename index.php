@@ -2,7 +2,7 @@
 session_start();
 require_once('src/controllers/acl.php');
 $pageTitle = 'La cave';
-require_once('src/models/index.php');
+require_once('src/models/model_index.php');
 $wines = getLimitWines()[0];
 $currentPage = getLimitWines()[1];
 $pages = getLimitWines()[2];
@@ -18,7 +18,7 @@ ob_start();
 <?php if(isset($_SESSION['msg_flash'])) { ?>
 	<div class="alert_role_message">
 		<div class="alert_role_message_content">
-			<p><?php echo $_SESSION['msg_flash'] ?> <br>or <a href="login.html">login</a></p>
+			<p><?php echo $_SESSION['msg_flash'] ?> <br>or <a href="login.php">login</a></p>
 			<span class="close">&times;</span>
 		</div>
 	</div>  
@@ -38,7 +38,7 @@ ob_start();
 				<p class="wine-country"><?= $wine['country'] ?></p>
 			</div>
 		</div>
-		<a href="wine_detail.html?id=<?php echo $wine['id'] ?>" class="wine-btn">+ d'infos</a>
+		<a href="wine_detail.php?id=<?php echo $wine['id'] ?>" class="wine-btn">+ d'infos</a>
 		<div class="more-infos">
 			<p class="wine-description"><?= $wine['description'] ?></p>
 		</div>
@@ -48,24 +48,24 @@ ob_start();
 
 <div class="pages">
 	<?php if($currentPage > 1) : ?>
-		<a href="index.html?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
+		<a href="index.php?page=<?=$currentPage - 1 ?>"><i class="fas fa-arrow-circle-left fa-2x pages-icon"></i></a>
 		<?php $currentPage = getLimitWines()[1]; ?>
 		<?php for($i = $currentPage; $i  > 1; $i--) : ?>
-			<a class="link-pages" href="index.html?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
+			<a class="link-pages" href="index.php?page=<?php echo ($currentPage + 1) - $i ?>"><?php echo ($currentPage + 1) - $i  ?></a>
 		<?php endfor ?>
 	<?php endif ?>
 
 	<?php if (($currentPage < $pages)) : ?>
 		<?php for($i = $currentPage; $i < $pages; $i++) : ?>
-			<a class="link-pages" href="index.html?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
+			<a class="link-pages" href="index.php?page=<?php echo $currentPage + 1 ?>"><?php echo $currentPage += 1 ?></a>
 		<?php endfor ?>
 		<?php $currentPage = getLimitWines()[1]; ?>
-	<a href="index.html?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
+	<a href="index.php?page=<?=$currentPage + 1 ?>"><i class="fas fa-arrow-circle-right fa-2x pages-icon"></i></a>
 	<?php endif ?>
 </div>
 
 
 <?php
 $content = ob_get_clean();
-require_once('template/layout.html');
+require_once('template/layout.php');
 ?>

@@ -3,11 +3,14 @@ session_start();
 require_once('src/models/wines.php');
 
 if(!isset($_SESSION['user'])) {
-    header('Location: ./index.html');
+    header('Location: ./index.php');
     exit;
 }
 
-if(isset($_POST['add'])) {
+$wine = getWineDetail($_GET['id']);
+
+
+if(isset($_POST['update'])) {
     if($_FILES['userfile']['name'] == '') {
         $image = 'generic.png';
     } else {
@@ -25,17 +28,15 @@ if(isset($_POST['add'])) {
         'quantity'=> $_POST['quantity']
     ];
 
-    $res = addWine($winesValues);
+    $res = updateWine($_GET['id'], $winesValues);
 
     if($_FILES['userfile']['name'] != '') {
     move_uploaded_file($_FILES['userfile']['tmp_name'], './assets/img/src/png'.$image);
     }
 
     if ($res) {
-        header('Location: ./admin.html');
+        header('Location: ./admin.php');
         exit;
     }
-
-
-
 }
+

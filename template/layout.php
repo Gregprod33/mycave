@@ -17,18 +17,18 @@ $findAdmin = strpos($uri, $admin);
 <body>
 	<header>
 		<nav>
-			<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+			<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 			<?php if(!isset($_SESSION['user'])) : ?>
-			<a class="btn-nav" href="login.html">Login</a>
+			<a class="btn-nav" href="login.php">Login</a>
 			<?php elseif(isset($_SESSION['user']) && $findAdmin == false): ?>
 			<div class="nav-buttons">
 				<a class="btn-nav logout-btn" href="src/controllers/logout.php">Logout</a>
-				<a class="btn-nav" href="admin.html">Admin</a>
+				<a class="btn-nav" href="admin.php">Admin</a>
 			</div>
 			<?php  elseif ($_SESSION['user'] && $findAdmin == true) : ?>
 			<div class="nav-buttons">
 				<a class="btn-nav logout-btn" href="src/controllers/logout.php">Logout</a>
-				<a class="btn-nav" href="index.html">Cellar</a>
+				<a class="btn-nav" href="index.php">Cellar</a>
 			</div>
 			<?php endif; ?>
 			
@@ -42,7 +42,7 @@ $findAdmin = strpos($uri, $admin);
 		<?php echo $content; ?>
 	</div>
 	<footer>
-		<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		<p class="footer">©2021 made with ♥ and not drunk !</p>
 		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
 	</footer>

@@ -30,7 +30,7 @@ function getSearchWines($userSearch) {
                 echo '<p class="wine-country">' . $domains['country'] . '</p>';
                 echo '</div>';
                 echo '</div>';
-                echo '<a href="wine_detail.html?id=' . $domains['id'] . '?>" class="wine-btn">+ d\'infos</a>';
+                echo '<a href="wine_detail.php?id=' . $domains['id'] . '?>" class="wine-btn">+ d\'infos</a>';
                 echo '<div class="more-infos">';
                 echo '<p class="wine-description">' . $domains['description'] . '</p>';
                 echo '</div>';

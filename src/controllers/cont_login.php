@@ -9,7 +9,7 @@ session_start();
  * il y a déjà une connexion.
  */
 if(isset($_SESSION['user'])){
-    header('Location: ./index.html');
+    header('Location: ./index.php');
         exit;
 }
 
@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
         echo 'Wrong password, try again';
     }else{
         $_SESSION['user'] = $user;
-        header('Location: ./admin.html');
+        header('Location: ./admin.php');
         exit;
     }
 }

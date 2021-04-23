@@ -37,10 +37,12 @@
 
 @mixin form($width, $height) {
     @include flex(center, center, column);
+    position: relative;
+    margin-top: 150px;
+    margin-bottom: 100px;
     background-color: $wine-light;
     border: 1px solid #888;
     border-radius: 15px;
-    margin: 100px auto;
     max-width: #{$width}px;
     height: #{$height}px;
 }

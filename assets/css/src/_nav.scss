@@ -15,6 +15,10 @@ header {
 			a.btn-nav {
 			@extend %button;
 			text-decoration: none;
+			&:hover {
+				color: $white;
+				background-color: $pink;
+			}
 			}
 
 			a.logout-btn {

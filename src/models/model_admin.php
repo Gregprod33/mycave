@@ -8,7 +8,7 @@ function getPdoConnect(){
 }
 
 if(!isset($_SESSION['user'])) {
-    header('Location: ../../index.html');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -22,7 +22,7 @@ function getLimitWines() {
         // http response code signifie "de façon prmanente"
         if ($page === '1') {
             http_response_code(301);
-            header('Location: ./admin.html');
+            header('Location: ./admin.php');
             exit;
         }
         $currentPage = (int)($_GET['page'] ?? 1);

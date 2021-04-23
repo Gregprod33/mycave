@@ -8,8 +8,7 @@
        margin: 0 25px;
        margin-bottom: 5px;
        &:hover {
-        color: $pink;
-        
+        color: $pink;    
     }
 
    }  
@@ -117,7 +116,6 @@ table {
                     }
                 }
 
-
             }
             
 
@@ -165,8 +163,8 @@ table {
         padding: 20px;
         border: 1px solid #888;
         border-radius: 15px;
-        width: 60%;
-        height: 100px; /* Could be more or less, depending on screen size */
+        width: 50%;
+        height: 120px; /* Could be more or less, depending on screen size */
         }
 
         .btn-modal-container {
@@ -175,13 +173,20 @@ table {
             #anchor {
                 @extend %button-form;
                 padding: 11px 15px;
+                &:hover {
+                    background-color: $wine-dark;
+                }
             }
             
             .cancel-btn {
             @extend %cancel-btn;
             padding: 11px 15px;
             margin: 0 10px;
+            &:hover {
+                background-color: $wine-dark;
             }
+            }
+            
         }
 
         .close {

@@ -1,3 +1,10 @@
+p.year-alert {
+    @include font(bold, 20, center);
+    color: $pink;
+    margin-top: 20px;
+}
+
+
 #add-form {
     @include form(500, 650);
     .wine-add-greeting {
@@ -5,6 +12,7 @@
         color: $pink;
         margin-bottom: 20px;
     }
+    
     .wrong-password {
         color: $pink;
         @include font(bold, 14px);

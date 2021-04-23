@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Login';
-require_once('src/controllers/login.php');
+require_once('src/controllers/cont_login.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,24 +14,25 @@ require_once('src/controllers/login.php');
 
 	<header>
 		<nav>
-			<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+			<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		</nav>
 	</header>
 
 <body>
     <div class="container">
-        <form id="user-form" method="POST" action="login.html">
+        <form id="user-form" method="POST" action="login.php">
+			<a  href="index.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <input type="mail" name="mail" placeholder="Mail" required>
             <input type="password" name="password" placeholder="Password" required>
             <div class="login-buttons">
                 <button type="submit" name="login">Confirm</button>
-                <a class="cancel-btn" href="index.html">Cancel</a>
+                <a class="cancel-btn" href="index.php">Cancel</a>
             </div>
         </form>
     </div>
 
     <footer>
-		<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		<p class="footer">©2021 made with ♥ and not drunk !</p>
 		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
 	</footer>

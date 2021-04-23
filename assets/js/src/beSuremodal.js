@@ -1,6 +1,6 @@
 
 function refreshTrash() {
-  /////////affichage modale sur admin.html début/////////
+  /////////affichage modale sur admin.php début/////////
   let modal = document.getElementById("myModal");
   let btn = document.getElementsByClassName("myBtn");
   let span = document.getElementsByClassName("close")[0];
@@ -17,7 +17,7 @@ function refreshTrash() {
           modal.style.display = "block";
           dataDomain = btn[i].getAttribute('data-domain');
           dataId = btn[i].getAttribute('data-id');
-          const content = `../src/controllers/delete_wine.php?id=${dataId}`;
+          const content = `../src/controllers/cont_delete_wine.php?id=${dataId}`;
           message.innerHTML = `Do you really want to delete ${dataDomain} ?`;
           anchor.innerHTML =`<a class="confirm-modal" href=${content}>Confirm</a>`;  
         }

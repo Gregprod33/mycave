@@ -13,11 +13,11 @@ function getLimitWines() {
         // on récupère le numéro de la page courante, s'il n'y en a pas ou si = 0 on affecte 1 
         $page = $_GET['page'] ?? 1;
 
-        // pour le référencement, on redirige la page 1 vers l'url natif index .html
+        // pour le référencement, on redirige la page 1 vers l'url natif index .php
         // http response code signifie "de façon prmanente"
         if ($page === '1') {
             http_response_code(301);
-            header('Location: ./index.html');
+            header('Location: ./index.php');
             exit;
         }
         $currentPage = (int)($_GET['page'] ?? 1);

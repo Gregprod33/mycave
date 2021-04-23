@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Edit Wine';
-require_once('src/controllers/wine_update.php');
+require_once('src/controllers/cont_wine_update.php');
 
 ?>
 <!DOCTYPE html>
@@ -16,14 +16,14 @@ require_once('src/controllers/wine_update.php');
 
 <header>
     <nav>
-        <a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+        <a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
     </nav>
 </header>
 
 <body>
     <div class="container">
-        <form enctype="multipart/form-data" id="update-form" method="POST" action="wine_update.html?id=<?php echo $wine['id'] ?>">
-            <a href="admin.html"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+        <form enctype="multipart/form-data" id="update-form" method="POST" action="wine_update.php?id=<?php echo $wine['id'] ?>">
+            <a href="admin.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <h1 class="wine-add-greeting"><?php echo strtoupper($_SESSION['user']['name']) ?>, you can update your wine here :)</h1>
             <img src="assets/img/src/png/<?php echo $wine['image'] ?>" alt="wine">
             <label for= "domain">Name</label>
@@ -45,12 +45,12 @@ require_once('src/controllers/wine_update.php');
             <input type="number" id="quantity" name="quantity" step="1" value="<?php echo $wine['quantity'] ?>" required> 
             <div class="add-buttons">
                 <button class="confirm-btn" type="submit" name="update">Update</button>
-                <a class="cancel-btn" href="admin.html">Cancel</a>
+                <a class="cancel-btn" href="admin.php">Cancel</a>
             </div>
         </form>
     </div>
     <footer>
-		<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		<p class="footer">©2021 made with ♥ and not drunk !</p>
 		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
 	</footer>

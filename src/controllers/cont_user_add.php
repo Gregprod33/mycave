@@ -2,7 +2,7 @@
 require_once('src/models/users.php');
 
 if(!isset($_SESSION['user'])) {
-    header('Location: ./index.html');
+    header('Location: ./index.php');
     exit;
 }
 
@@ -21,7 +21,7 @@ if(isset($_POST['addUser'])) {
     $res = addUser($userValues);
 
     if($res) {
-        header('Location: ./admin.html');
+        header('Location: ./admin.php');
         exit;
     }
 }

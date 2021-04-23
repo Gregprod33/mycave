@@ -1,7 +1,7 @@
 <?php
 session_start();
 $pageTitle = 'Add User';
-require_once('src/controllers/user_add.php');
+require_once('src/controllers/cont_user_add.php');
 require_once('src/controllers/acl.php');
 ?>
 
@@ -18,13 +18,14 @@ require_once('src/controllers/acl.php');
 
 <header>
     <nav>
-        <a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+        <a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
     </nav>
 </header>
 
 <body>
     <div class="container">
-        <form id="user-form" method="POST" action="user_add.html">
+        <form id="user-form" method="POST" action="user_add.php">
+            <a href="admin.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <input type="text" name="name" placeholder="Name" required>
             <input type="mail" name="mail" placeholder="Mail" required>
             <input type="text" name="password" placeholder="Password" required>
@@ -44,12 +45,12 @@ require_once('src/controllers/acl.php');
             </div>
             <div class="login-buttons">
                 <button type="submit" name="addUser">Confirm</button>
-                <a class="cancel-btn" href="admin.html">Cancel</a>
+                <a class="cancel-btn" href="admin.php">Cancel</a>
             </div>
         </form>
     </div>
     <footer>
-		<a href="../index.html"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
 		<p class="footer">©2021 made with ♥ and not drunk !</p>
 		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
 	</footer>
