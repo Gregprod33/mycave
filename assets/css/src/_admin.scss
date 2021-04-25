@@ -1,4 +1,15 @@
-    
+.count-bottles {
+    @include font(bold, 20);
+    text-align: center;
+    color: $wine-light;
+    margin-bottom: 25px;
+
+    span {
+        color: $pink;
+    }
+}
+
+
 .add-icons {
     @include font(bold, 20);
     @include flex(center, center);

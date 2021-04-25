@@ -6,6 +6,7 @@ require_once('src/models/model_admin.php');
 $wines = getLimitWines()[0];
 $currentPage = getLimitWines()[1];
 $pages = getLimitWines()[2];
+$countAll = getLimitWines()[3];
 ob_start();
 ?>
 
@@ -13,6 +14,10 @@ ob_start();
 	<input id="search_admin" type="text" name="search" placeholder="ex: France, syrah, 2009, California... ">
 	<i class="fas fa-search fa-lg"></i>
 </form>
+
+<div class="count-bottles">
+    <p>You have <span><?php echo $countAll ?></span> bottles in your cellar !</p>
+</div>
 
 <div class="add-icons">
     <?php if($_SESSION['user']['weight'] > 50) : ?>

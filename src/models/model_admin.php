@@ -30,7 +30,8 @@ function getLimitWines() {
             throw New Exception('Numéro de page invalide');
         }
         // on récuère le nombre d'articles dans la base de données
-        $count = (int)$pdo->query("SELECT COUNT(id) FROM wines LIMIT 1")->fetch(PDO::FETCH_NUM)[0];
+        $count = (int)$pdo->query("SELECT COUNT(id) FROM wines")->fetch(PDO::FETCH_NUM)[0];
+        $countAll = (int)$pdo->query("SELECT SUM(quantity) FROM wines")->fetch(PDO::FETCH_NUM)[0];
         // on calcule le nombre de pages totales à afficher : nbre articles / limite = 6 ici
         // et on arrondi au chiffre supérieur
         $perPage = 6;
@@ -42,7 +43,7 @@ function getLimitWines() {
         $query = $pdo->query("SELECT id, image, description, domain, year, grape, region, country, quantity FROM wines ORDER BY create_time DESC LIMIT $perPage OFFSET $offset");
         $posts=$query->fetchAll(PDO::FETCH_ASSOC);
 
-        return array($posts, $currentPage, $pages);
+        return array($posts, $currentPage, $pages, $countAll);
 
     } catch (\PDOException $th) {
         return false;
