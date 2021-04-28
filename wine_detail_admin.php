@@ -28,7 +28,7 @@ $pageTitle = 'Wine Detail -' . $wine['domain'];
         <div class="wine-detail">
             <a href="admin.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <div class="up-detail-wine">
-                <img src="assets/img/src/png/<?= $wine['image'] ?>" alt="wine" alt="image">
+                <img src="assets/img/src/uploads/<?= $wine['image'] ?>" alt="wine" alt="image">
                 <div class="detail-wine-infos">
                     <h2 class="wine-name"><span>Name : </span><?= $wine['domain'] ?></h2>
                     <h3 class="wine-year"><span>Year : </span><?= $wine['year'] ?></h3>

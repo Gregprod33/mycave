@@ -16,7 +16,7 @@ if(isset($_SESSION['user'])){
 if(isset($_POST['login'])){
     require_once('src/models/users.php');
 
-    $user = getUserFromLogin($_POST['mail'], $_POST['password']);
+    $user = getUserFromLogin(htmlspecialchars($_POST['mail']), htmlspecialchars($_POST['password']));
 
     if($user == false){
         echo 'Wrong password, try again';

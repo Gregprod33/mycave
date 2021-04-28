@@ -40,7 +40,6 @@ $alert = "Wrong year input, please enter a valid year";
             <input type="text" name="country" placeholder="Country" required>
             <textarea id="description" name="description" rows="5" cols="36">Description
             </textarea>
-            <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
             <label for="userfile">Image</label>
             <input type="file" name="userfile" class="userfile">
             <label for="quantity">Quantity</label>

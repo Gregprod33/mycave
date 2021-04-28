@@ -29,7 +29,7 @@ ob_start();
 	<div class="wine-card">
 		<div class="wine-body">
 			<p class="wine-description"><?= $wine['description'] ?></p>
-			<img class="wine-img" src="assets/img/dist/png/<?= $wine['image'] ?>" alt="wine">
+			<img class="wine-img" src="assets/img/src/uploads/<?= $wine['image'] ?>" alt="wine">
 			<div class="wine-infos">
 				<h2 class="wine-name"><?= $wine['domain'] ?></h2>
 				<h3 class="wine-year"><?= $wine['year'] ?></h3>

@@ -26,6 +26,7 @@ ob_start();
     <a href="wine_add.php"><i class="fas fa-folder-plus fa-2x add-wine"></i></a>  
 </div>
 
+
 <table id="show_admin_filter">
     <thead>
         <th class="head-img">Image</th>
@@ -41,7 +42,7 @@ ob_start();
     <?php foreach($wines as $wine) : ?>
     <tbody>
         <?php $domain = $wine['domain']; ?>
-        <td class="cell-img"><img class="stock-img" src="assets/img/dist/png/<?= $wine['image'] ?>" alt="wine"></td>
+        <td class="cell-img"><img class="stock-img" src="assets/img/src/uploads/<?= $wine['image'] ?>" alt="wine"></td>
         <td><?= $wine['domain'] ?></td>
         <td><?= $wine['year'] ?></td>
         <td><?= $wine['grape'] ?></td>

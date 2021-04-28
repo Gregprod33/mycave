@@ -9,59 +9,55 @@ if(!isset($_SESSION['user'])) {
     exit;
 }
 
+
+
 if(isset($_POST['add'])) {
-    if($_FILES['userfile']['name'] == '') {
-        $image = 'generic.png';
-    } else {
-        $image = $_FILES['userfile']['name'];
-    }
-
-   
-
+    $ext = array('png', 'jpg', 'jpeg', 'gif');
     if($_POST['year'] < 1950 || $_POST['year'] > 2022) {
         header('Location: ./wine_add.php?alert=');
         exit;
+    }
+
+    if($_FILES['userfile']['name'] == '') {
+        $image = 'generic.png';
     } else {
+        if($_FILES['userfile']['size'] > 1000000) {
+            $msg_error = 'La taille du fichier est limité à 1 Mo, merci de remplacer le fichier';
+        } elseif (!in_array(pathinfo($_FILES['userfile']['name'],PATHINFO_EXTENSION), $ext)) {
+            $msg_error = 'le fichier téléchargé n\'est pas pas une image';
+        } else {
+            $img_name = uniqid() . $_FILES['userfile']['name'];
+            $img_folder = './assets/img/src/uploads/';
+            $dir = $img_folder . $img_name;
+            @move_uploaded_file($_FILES['userfile']['tmp_name'], $dir);
+            $image = $img_name;
+        } 
+
+    }
 
 
         $winesValues = [
-            'domain' => strtoupper($_POST['domain']),
+            'domain' => strtoupper(htmlspecialchars($_POST['domain'])),
             'image' => $image,
-            'year' => $_POST['year'],
-            'grape' => $_POST['grape'],
-            'region' => $_POST['region'],
-            'description' => $_POST['description'],
-            'country' => $_POST['country'],
-            'quantity'=> $_POST['quantity']
+            'year' => htmlspecialchars($_POST['year']),
+            'grape' => htmlspecialchars($_POST['grape']),
+            'region' => htmlspecialchars($_POST['region']),
+            'description' => htmlspecialchars($_POST['description']),
+            'country' => htmlspecialchars($_POST['country']),
+            'quantity'=> htmlspecialchars($_POST['quantity'])
         ];
-    
+
         $res = addWine($winesValues);
-    
-        if($_FILES['userfile']['name'] != '') {
-        move_uploaded_file($_FILES['userfile']['tmp_name'], './assets/img/src/png'.$image);
-        }
-    
+
         if ($res) {
             header('Location: ./admin.php');
             exit;
         }
+}
 
-
-
-
-
-
-
-
-
-
-
-    }
-     
-
-
+        
+    
+       
 
     
-
-
-}
+     

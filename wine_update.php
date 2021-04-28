@@ -1,6 +1,8 @@
 <?php
 $pageTitle = 'Edit Wine';
 require_once('src/controllers/cont_wine_update.php');
+$alert = "Wrong year input, please enter a valid year";
+
 
 ?>
 <!DOCTYPE html>
@@ -22,10 +24,16 @@ require_once('src/controllers/cont_wine_update.php');
 
 <body>
     <div class="container">
+    <?php 
+        if(isset($_GET['alert'])) {
+            $_GET['alert'] = $alert;
+        echo '<p class="year-alert">' . $alert . '</p>'; 
+        }
+        ?>
         <form enctype="multipart/form-data" id="update-form" method="POST" action="wine_update.php?id=<?php echo $wine['id'] ?>">
             <a href="admin.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <h1 class="wine-add-greeting"><?php echo strtoupper($_SESSION['user']['name']) ?>, you can update your wine here :)</h1>
-            <img src="assets/img/src/png/<?php echo $wine['image'] ?>" alt="wine">
+            <img src="assets/img/src/uploads/<?php echo $wine['image'] ?>" alt="wine">
             <label for= "domain">Name</label>
             <input type="text" id="domain" name="domain" placeholder="Name" value="<?php echo $wine['domain'] ?>" required>
             <label for="year">Year</label>

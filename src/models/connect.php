@@ -3,9 +3,9 @@
 try {
 
     $pdo = new PDO(
-        'mysql:host=localhost;dbname=id16675071_gboescellar;charset=utf8',
-        'id16675071_gboes',
-        'u^mV&)3u5t&s7o*?',
+        'mysql:host=localhost;dbname=my_cave;charset=utf8',
+        'root',
+        '',
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]

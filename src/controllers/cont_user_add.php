@@ -14,9 +14,9 @@ if(isset($_POST['addUser'])) {
     }
     $userValues = [
         'id_role' => $role,
-        'name' => strtolower($_POST['name']),
-        'mail' => strtolower($_POST['mail']),
-        'password' => $_POST['password']
+        'name' => strtolower(htmlspecialchars($_POST['name'])),
+        'mail' => strtolower(htmlspecialchars($_POST['mail'])),
+        'password' => htmlspecialchars($_POST['password'])
     ];
     $res = addUser($userValues);
 
