@@ -22,6 +22,9 @@ require_once('src/controllers/cont_login.php');
     <div class="container">
         <form id="user-form" method="POST" action="login.php">
 			<a  href="index.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+			<?php if(isset($_GET['err'])) : ?>
+			<p><?php echo '<p class="error">' . $_GET['err'] . '</p>'?>
+			<?php endif ?>
             <input type="mail" name="mail" placeholder="Mail" required>
             <input type="password" name="password" placeholder="Password" required>
             <div class="login-buttons">

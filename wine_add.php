@@ -27,7 +27,7 @@ $alert = "Wrong year input, please enter a valid year";
     <?php 
         if(isset($_GET['alert'])) {
             $_GET['alert'] = $alert;
-        echo '<p class="year-alert">' . $alert . '</p>'; 
+        echo '<p class="error">' . $alert . '</p>'; 
         }
         ?>
         <form enctype="multipart/form-data" id="add-form" method="POST" action="wine_add.php">

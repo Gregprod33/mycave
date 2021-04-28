@@ -24,6 +24,9 @@ require_once('src/controllers/acl.php');
 
 <body>
     <div class="container">
+        <?php if(isset($_GET['err'])) : ?>
+            <?php echo '<p class="error">' . $_GET['err'] . '</p>'?>
+        <?php endif ?>
         <form id="user-form" method="POST" action="user_add.php">
             <a href="admin.php"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
             <input type="text" name="name" placeholder="Name" required>

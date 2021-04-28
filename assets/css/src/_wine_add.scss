@@ -1,7 +1,8 @@
-p.year-alert {
-    @include font(bold, 20, center);
+p.error {
+    @include font(bold, 18, center);
     color: $pink;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 
