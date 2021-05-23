@@ -28,11 +28,11 @@ if (isset($_POST['add'])) {
     if ($_POST['year'] < 1950 || $_POST['year'] > 2022) {
         $_SESSION['msg_error']  = 'L\'année n\'est pas valide !';
         redirectRoute();
+    } elseif ($_FILES['userfile']['name'] == '') {
+        $image = 'generic.png';
     } elseif (!in_array(pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION), $ext)) {
         $_SESSION['msg_error'] = 'le fichier téléchargé n\'est pas pas une image';
         redirectRoute();
-    } elseif ($_FILES['userfile']['name'] == '') {
-        $image = 'generic.png';
     } elseif ($_FILES['userfile']['size'] > 2000000) {
         $_SESSION['msg_error']  = 'La taille du fichier est limité à 2 Mo, merci de remplacer le fichier';
         redirectRoute();
@@ -45,16 +45,20 @@ if (isset($_POST['add'])) {
     }
 
 
+    function html($string) // faille XSS
+    {
+        return trim(htmlspecialchars($string, ENT_QUOTES));
+    }
 
     $winesValues = [
-        'domain' => mb_strtoupper(htmlspecialchars($_POST['domain'])),
+        'domain' => mb_strtoupper(html($_POST['domain'])),
         'image' => $image,
-        'year' => htmlspecialchars($_POST['year']),
-        'grape' => htmlspecialchars($_POST['grape']),
-        'region' => htmlspecialchars($_POST['region']),
-        'description' => htmlspecialchars($_POST['description']),
-        'country' => htmlspecialchars($_POST['country']),
-        'quantity' => htmlspecialchars($_POST['quantity'])
+        'year' => html($_POST['year']),
+        'grape' => html($_POST['grape']),
+        'region' => html($_POST['region']),
+        'description' => html($_POST['description']),
+        'country' => html($_POST['country']),
+        'quantity' => html($_POST['quantity'])
     ];
 
     $res = addWine($winesValues);
