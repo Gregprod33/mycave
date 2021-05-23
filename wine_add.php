@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Add Wine';
 require_once('src/controllers/cont_wine_add.php');
-$alert = "Wrong year input, please enter a valid year";
+// $alert = "Wrong year input, please enter a valid year";
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +24,9 @@ $alert = "Wrong year input, please enter a valid year";
 
 <body>
     <div class="container">
-    <?php 
-        if(isset($_GET['alert'])) {
-            $_GET['alert'] = $alert;
-        echo '<p class="error">' . $alert . '</p>'; 
+        <?php
+        if (isset($_SESSION['msg_error'])) {
+            echo '<p class="error">' . $_SESSION['msg_error'] . '</p>';
         }
         ?>
         <form enctype="multipart/form-data" id="add-form" method="POST" action="wine_add.php">
@@ -52,13 +51,14 @@ $alert = "Wrong year input, please enter a valid year";
     </div>
 
     <footer>
-		<a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
-		<p class="footer">©2021 made with ♥ and not drunk !</p>
-		<a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-	</footer>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="assets/js/dist/scripts.min.js"></script>
+        <a href="../index.php"><img class="img-nav" src="assets/img/dist/logo/logo-large.png" alt="logo"></a>
+        <p class="footer">©2021 made with ♥ and not drunk !</p>
+        <a href="https://www.linkedin.com/in/gr%C3%A9gory-boes-98b0b21a3/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+    </footer>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/dist/scripts.min.js"></script>
 </body>
+
 </html>

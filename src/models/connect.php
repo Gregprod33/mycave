@@ -10,9 +10,6 @@ try {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]
     );
-    
-  
-
 } catch (\PDOException $th) {
 
     echo $th->getMessage();

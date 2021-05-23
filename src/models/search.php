@@ -18,7 +18,7 @@ function getSearchWines($userSearch) {
         $stmt->execute();
         while($domains = $stmt->fetch(PDO::FETCH_ASSOC)) {
            
-                $image = 'assets/img/src/png/' . $domains['image'];
+                $image = 'assets/img/src/uploads/' . $domains['image'];
                 echo '<div class="wine-card">';
                 echo '<div class="wine-body">';
                 echo '<img class="wine-img" src='. $image . ' alt="wine">';

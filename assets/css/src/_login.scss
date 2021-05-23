@@ -28,6 +28,7 @@ form#user-form {
             color: $wine-dark;
         }
     }
+
     .login-buttons {
         @include flex(center, center);
         button {
@@ -39,8 +40,6 @@ form#user-form {
             padding: 11px 15px;
             margin: 0 10px;
         }
-
-
     }
     
 }

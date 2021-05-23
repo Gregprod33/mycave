@@ -1,10 +1,8 @@
 <?php
 $pageTitle = 'Edit Wine';
 require_once('src/controllers/cont_wine_update.php');
-$alert = "Wrong year input, please enter a valid year";
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,9 +23,8 @@ $alert = "Wrong year input, please enter a valid year";
 <body>
     <div class="container">
     <?php 
-        if(isset($_GET['alert'])) {
-            $_GET['alert'] = $alert;
-        echo '<p class="error">' . $alert . '</p>'; 
+        if(isset($_SESSION['msg_error'])) {
+        echo '<p class="error">' . $_SESSION['msg_error'] . '</p>'; 
         }
         ?>
         <form enctype="multipart/form-data" id="update-form" method="POST" action="wine_update.php?id=<?php echo $wine['id'] ?>">
@@ -46,7 +43,6 @@ $alert = "Wrong year input, please enter a valid year";
             <input type="text" id="country" name="country" placeholder="Country" value="<?php echo $wine['country'] ?>" required> 
             <label for="description">Description</label>
             <textarea id="description" name="description" rows="10" cols="35" v><?php echo $wine['description'] ?></textarea>
-            <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
             <label for="userfile">Image</label>
             <input type="file" name="userfile" class="userfile">
             <label for="quantity">Quantity</label>

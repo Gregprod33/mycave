@@ -19,7 +19,7 @@ function getSearchWines($userSearch) {
             $domain = $domains['domain'];
             $anchor_one = 'wine_update.php?id=' . $domains['id'];
             $anchor_two = 'wine_detail_admin.php?id=' . $domains['id'];
-            $image = 'assets/img/src/png/' . $domains['image'];
+            $image = 'assets/img/src/uploads/' . $domains['image'];
             echo '<tbody>';
             echo '<td class="cell-img"><img class="stock-img" src=' . $image . '  alt="wine"></td>';
             echo '<td>' . $domains['domain'] . '</td>';
